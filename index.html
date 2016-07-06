@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FSV Feature</title>
+    <link rel="stylesheet" type="text/css" href="assets/jquery-easyui-1.4.5/themes/gray/easyui.css">
+    <link rel="stylesheet" type="text/css" href="assets/jquery-easyui-1.4.5/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/app.css">
+</head>
+<body class="easyui-layout">
+  <div data-options="region:'east', split:true, hideCollapsedContent:false" title="Metadata" style="width:30%;">
+    <div class="easyui-layout" data-options="fit:true" id="east-layout">
+      <div data-options="region:'center'" style="padding: 5px;">
+        <table style="width: 100%" id="metadata-table">
+          <tr>
+            <th>Latitude:</th><td id="meta-latitude"></td>
+            <th>Longitude:</th><td id="meta-longitude"></td>
+          </tr>
+          <tr>
+            <th>Direction:</th><td id="meta-direction"></td>
+            <th>Viewport:</th><td id="meta-viewport"></td>
+          </tr>
+          <tr>
+            <th>Speed:</th><td id="meta-speed"></td>
+            <th>Altitude:</th><td id="meta-altitude"></td>
+          </tr>
+          <tr>
+            <th>H Accuracy:</th><td id="meta-horizontal-accuracy"></td>
+            <th>V Accuracy:</th><td id="meta-vertical-accuracy"></td>
+          </tr>
+        </table>
+      </div>
+      <div data-options="region:'south', split:true, hideCollapsedContent:false, maximizable:true" title="Map" style="height:80%" id="map"></div>
+    </div>
+  </div>
+  <div data-options="region:'center'" title="Fulcrum Spatial Video">
+    <div class="easyui-layout" data-options="fit:true">
+      <div data-options="region:'center'" style="padding: 10px; overflow: hidden;">
+        <video width="100%" height="100%" id="video" controls></video>
+      </div>
+      <div data-options="region:'south', split:true, hideCollapsedContent:false, maximizable:true" title="Video Features" style="height:40%">
+        <table id="feature-grid"></table>
+      </div>
+    </div>
+  </div>
+</body>
+<div class="toolbar" id="tb">
+  <div class="alignleft">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-fa-play" plain="true" id="toggle-video-btn"></a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-fa-plus" plain="true" id="add-feature-btn"></a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-fa-minus" plain="true" id="remove-feature-btn"></a>
+    <input type="checkbox" id="controls-checkbox" checked> Controls
+    <input type="checkbox" id="captions-checkbox" checked> Captions
+  </div>
+  <div class="alignright">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-fa-download" id="export-geojson-btn">Export GeoJSON</a>
+    <input type="file" id="geojson-file" accept=".geojson" style="display: none;">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-fa-upload" id="import-geojson-btn">Import GeoJSON</a>
+    <input type="file" id="local-files" accept=".mp4,.json" multiple style="display: none;">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-fa-file-video-o" id="local-files-btn">Local Video/Track</a>
+  </div>
+  <div style="clear: both;"></div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyA6-k17Qd-ZQTpF1lK2W9od932y9s38oZY"></script>
+<script src="assets/jquery-easyui-1.4.5/jquery.min.js"></script>
+<script src="assets/jquery-easyui-1.4.5/jquery.easyui.min.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/lockr.js"></script>
+<script src="assets/js/app.js"></script>
+</html>
