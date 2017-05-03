@@ -479,7 +479,8 @@ $("#local-files").change(function(e) {
     alert("Please select one video (.mp4) and one track (.json) file.");
   } else {
     $.each(files, function(index, file) {
-      if (file.type == "application/json") {
+      var ext = file.name.split(".").pop();
+      if (file.type == "application/json" || (ext == "json")) {
         var reader = new FileReader();
         reader.onload = function(e) {
           trackJSON = JSON.parse(reader.result);
